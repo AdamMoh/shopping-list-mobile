@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field, unused_local_variable
+// ignore_for_file: unused_field, unused_local_variable, use_build_context_synchronously
 
 import 'dart:convert';
 
@@ -120,15 +120,12 @@ class _ShopFormPageState extends State<ShopFormPage> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        // Send request to Django and wait for the response
-                        // TODO: Change the URL to your Django app's URL. Don't forget to add the trailing slash (/) if needed.
                         final response = await request.postJson(
                             "http://localhost:8000/create-flutter/",
                             jsonEncode(<String, String>{
                               'name': _name,
                               'price': _price.toString(),
                               'description': _description,
-                              // TODO: Adjust the fields with your Django model
                             }));
                         if (response['status'] == 'success') {
                           ScaffoldMessenger.of(context)

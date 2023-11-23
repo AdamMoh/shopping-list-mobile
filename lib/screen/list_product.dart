@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -15,7 +15,6 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   Future<List<Product>> fetchProduct() async {
-    // TODO: Change the URL to your Django app's URL. Don't forget to add the trailing slash (/) if needed.
     var url = Uri.parse('http://localhost:8000/json/');
     var response = await http.get(
       url,
